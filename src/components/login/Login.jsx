@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { setUser } from '../store/slices/user.slice'
 import CreateUser from './CreateUser'
 import FormLogin from './FormLogin'
 import './styles/login.css'
@@ -11,9 +13,33 @@ const Login = () => {
 
   const dispatch = useDispatch()
 
-  const navigate = useNavigate()
+
+
+  const getAllUser = () => {
+    URL = 'https://sheet.best/api/sheets/358e08e4-076d-428f-a6d1-e341c5c18712'
+    axios   .get(URL)
+        .then( res => dispatch(setUser(res.data)))
+        .catch(err => console.log(err))
+  }
+
+  useEffect(() => {
+  getAllUser()
+}, [])
+
+const users = useSelector(state => state.user)
+
+
+
+
+// console.log(createId);
+
+  // const dispatch = useDispatch()
+
+  // const navigate = useNavigate()
 
   // modal
+
+  
 
   const [isFormOpen, setIsFormOpen] = useState()
 
@@ -31,12 +57,7 @@ const Login = () => {
       </div>
 
       <div className={isFormOpen ? 'form-container' : 'form-none'}>
-        <CreateUser
-          // getAllUser={getAllUser}
-          // updateInfoUser={updateInfoUser}
-          // setUpdateInfoUser={setUpdateInfoUser}
-          handleCloseForm={handleCloseForm}
-        />
+        <CreateUser handleCloseForm={handleCloseForm} getAllUser={getAllUser}/>
       </div>
 
     </div>

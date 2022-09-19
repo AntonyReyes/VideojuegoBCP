@@ -1,18 +1,23 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useSelector } from 'react-redux'
 
 // const CreateUser = ({ getAllUser, updateInfoUser, setUpdateInfoUser,handleCloseForm}) => {
-const CreateUser = ({handleCloseForm }) => {
+const CreateUser = ({ handleCloseForm, getAllUser }) => {
 
     const defaulltValueUser = {
         name: '',
-        genre: '',
-        duration: '',
-        release_date: '',
-        password: ''
+        lastName: '',
+        user: '',
+        password: '',
+        email: '',
     }
 
     const { register, handleSubmit, reset } = useForm()
+
+
+
 
     // useEffect(() => {
     //     if (updateInfoUser) {
@@ -20,15 +25,19 @@ const CreateUser = ({handleCloseForm }) => {
     //     }
     // }, [updateInfoUser])
 
-    // const createNewUser = data => {
-    //     const URL = 'http://144.126.218.162:8000/movies/'
-    //     axios.post(URL, data)
-    //         .then(res => {
-    //             console.log(res.data);
-    //             getAllUser()
-    //         })
-    //         .catch(err => console.log(err))
-    // }
+
+
+    const createNewUser = data => {
+        URL = 'https://sheet.best/api/sheets/358e08e4-076d-428f-a6d1-e341c5c18712'
+        axios.post(URL, data)
+            .then(res => {
+                console.log(res.data);
+                getAllUser()
+            })
+            .catch(err => console.log(err))
+    }
+
+    const users = useSelector(state => state.user)
 
     // const updateUser = data => {
     //     const URL = `http://144.126.218.162:8000/movies/${updateInfoUser.id}/`
@@ -40,35 +49,31 @@ const CreateUser = ({handleCloseForm }) => {
     //         .catch(err => console.log(err))
     // }
 
-    // const submit = data => {
-    //     if (updateInfoUser) {
-    //         updateUser(data)
-    //         setUpdateInfoUser()
-    //     } else {
-    //         createNewUser(data)
-    //         reset(defaulltValueUser)
-    //     }
+    const submit = data => {
+        // if (updateInfoUser) {
+        //     updateUser(data)
+        //     setUpdateInfoUser()
+        // } else {
 
-    //     reset(defaulltValueUser)
-    //     handleCloseForm()
-    // }
+        createNewUser(data)
+        reset(defaulltValueUser)
+        // }
+
+        // reset(defaulltValueUser)
+        handleCloseForm()
+    }
 
     const closeForm = () => {
         handleCloseForm()
         // setUpdateInfoUser()
-        reset(defaulltValueUser)
+        // reset(defaulltValueUser)
     }
-
-
-
     return (
 
-        <form className='form'>
+        <form onSubmit={handleSubmit(submit)} className='form'>
+
             <div onClick={closeForm} className='form_x'>X</div>
-            <h2 className='form__title'>
-                {/* {updateInfoUser ? 'Update User' : 'Create new user'} */}
-                Crear cuenta
-            </h2>
+            <h2 className='form__title'>Crear cuenta</h2>
             <ul className='form__list'>
                 <li className='form__item'>
                     <label htmlFor="name">Nombre</label>
@@ -76,67 +81,49 @@ const CreateUser = ({handleCloseForm }) => {
                 </li>
                 <li className='form__item'>
                     <label htmlFor="last_name">Apellidos</label>
-                    <input {...register('genre')} type="text" id='last_name' placeholder='Reyes Pérez' required />
-                </li>
-                <li className='form__item'>
-                    <label htmlFor="email">Correo Electronico</label>
-                    <input {...register('duration')} type="email" id='email' placeholder='example@gmail.com' required />
+                    <input {...register('lastName')} type="text" id='last_name' placeholder='Reyes Pérez' required />
                 </li>
 
                 <li className='form__item'>
-                    <label htmlFor="last_name">Nombre de usuario</label>
-                    <input {...register('genre')} type="text" id='last_name' placeholder='Reyes Pérez' required />
+                    <label htmlFor="last_genero">Genero: </label>
+                    <div>
+                        <div>
+                            <label htmlFor="last_genero1">Masculino: </label>
+                            <input {...register('genero')} type="radio" id='last_genero1' required value={'M'} />
+                        </div>
+
+                        <div>
+                        <label htmlFor="last_genero2">Femenino: </label>
+                            <input {...register('genero')} type="radio" id='last_genero2' required value={'F'} />
+                        </div>
+                    </div>
+
                 </li>
-                
+
                 <li className='form__item'>
-                    <label htmlFor="password">Contra</label>
-                    <input {...register('release_date')} type="password" id='password' placeholder='password' required />
+                    <label htmlFor="email-create">Correo Electronico</label>
+                    <input {...register('email')} type="email" id='email-create' placeholder='example@gmail.com' required />
                 </li>
+
                 <li className='form__item'>
-                    <label htmlFor="birthday">Birthday</label>
-                    <input {...register('release_date')} type="date" id='birthday' required />
+                    <label htmlFor="name_user">Nombre de usuario</label>
+                    <input {...register('user')} type="text" id='name_user' placeholder='usuario123' required />
+                </li>
+
+                <li className='form__item'>
+                    <label htmlFor="password-create">Contraseña</label>
+                    <input {...register('password')}
+                        type="password"
+                        id='password-create'
+                        placeholder='ingresar contraseña'
+                        required
+                        autoComplete='contraseñ122a' />
+                    <input {...register('dinner')} value={2000} type="number"  hidden={true}/>
                 </li>
             </ul>
-            <button className='form__btn'>
-                {/* {updateInfoUser ? 'Update' : 'Create'} */}
-                Create
-            </button>
+            <button className='form__btn'>Crear</button>
+
         </form>
-
-
-
-
-
-
-        //     <form onSubmit={handleSubmit(submit)} className='form'>
-        //     <div onClick={closeForm} className='form_x'>X</div>
-        //     <h2 className='form__title'>
-        //         {updateInfoUser ? 'Update User' : 'Create new user'}
-        //     </h2>
-        //     <ul className='form__list'>
-        //         <li className='form__item'>
-        //             <label htmlFor="name">First name</label>
-        //             <input {...register('name')} type="text" id='name' placeholder='first name' required />
-        //         </li>
-        //         <li className='form__item'>
-        //             <label htmlFor="last_name"> Last Name</label>
-        //             <input {...register('genre')} type="text" id='last_name' placeholder='last name' required/>
-        //         </li>
-        //         <li className='form__item'>
-        //             <label htmlFor="email">Email</label>
-        //             <input {...register('duration')} type="email" id='email' placeholder='example@academlo.com' required/>
-        //         </li>
-        //         <li className='form__item'>
-        //             <label htmlFor="password">Password</label>
-        //             <input {...register('release_date')} type="password" id='password' placeholder='password' required/>
-        //         </li>
-        //         <li className='form__item'>
-        //             <label htmlFor="birthday">Birthday</label>
-        //             <input {...register('release_date')} type="date" id='birthday'  required />
-        //         </li>
-        //     </ul>
-        //     <button className='form__btn'>{updateInfoUser ? 'Update' : 'Create'}</button>
-        // </form>
     )
 }
 

@@ -1,9 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Navigate, Outlet } from 'react-router-dom'
 
-const ProtectedRoutes = ({isLogged}) => {
+const ProtectedRoutes = () => {
+  const users = useSelector(state => state.user)
 
-  if(user) {
+  if(users) {
     return <Outlet />
   } else {
     return <Navigate to='/login' />

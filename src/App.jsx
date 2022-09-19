@@ -21,9 +21,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login/>} />
-        <Route path='/perfil' element={<Perfil/>} />
         <Route element={<ProtectedRoutes/>} >
-          {/* <Route path='/perfil' element={<Perfil/>} /> */}
+          <Route path='/perfil' element={<Perfil/>} />
           {/* <Route path='/pokedex/:name' element={} /> */}
         </Route>
       </Routes>
