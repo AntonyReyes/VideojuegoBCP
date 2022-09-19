@@ -1,1 +1,14 @@
 /* Aqui estilos */
+
+
+
+
+#containerUno{
+    background-color: blue;
+    margin-top: 1.5%;
+    margin-right: 1%;
+    margin-left: 1%;
+    width: 1500px;
+    font-size: x-small;
+    
+}

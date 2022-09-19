@@ -17,7 +17,8 @@ const Perfil = () => {
   if (user[0] !== undefined) {
     return (
       <div >
-        <div>
+  
+        <div id="containerUno">
         {
           user[0].genero === 'M'?
           <h1>{`Bienvenido ${user[0].name},a este juego de educación financiera`}</h1>
