@@ -1,1 +1,25 @@
-
+.home {
+    margin-top: 1em;
+}
+.h1_bvb{
+    text-align: center;
+    margin-bottom: 1em;
+}
+.logo_home{
+    width: 400px; 
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+.p_home{
+    margin-right: 1em;
+    margin-left: 1em;
+    margin-bottom: 1em;
+}
+.b_home{
+    color: red;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}

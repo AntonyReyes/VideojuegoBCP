@@ -85,9 +85,9 @@ const FormLogin = () => {
       dispatch(setPersonal(aux))
       navigate('/perfil')
       aux[0].genero === 'M'?
-    speechSynthesis.speak(new SpeechSynthesisUtterance(`Bienvenido, ${aux[0].name},a este juego de ,educación financiera. Su   saldo actualmente  es, ${aux[0].dinner} soles`))
+    speechSynthesis.speak(new SpeechSynthesisUtterance(`Bienvenido, ${aux[0].name},  a este juego de ,educación financiera. Su   saldo actualmente  es, ${aux[0].dinner} soles`))
     :
-    speechSynthesis.speak(new SpeechSynthesisUtterance(`Bienvenida, ${aux[0].name}, a este juego de ,educación financiera. Su   saldo actualmente  es, ${aux[0].dinner} soles`))
+    speechSynthesis.speak(new SpeechSynthesisUtterance(`Bienvenida, ${aux[0].name},  a este juego de ,educación financiera. Su   saldo actualmente  es, ${aux[0].dinner} soles`))
     } else {
       speechSynthesis.speak(new SpeechSynthesisUtterance(`Contraseña incorrecta!!`));
     }
