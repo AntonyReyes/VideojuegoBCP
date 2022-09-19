@@ -3,7 +3,7 @@ import { Link, Route, Routes } from 'react-router-dom'
 import Home from './components/Home'
 import ProtectedRoutes from './ProtectedRoutes'
 import Login from './components/login/Login'
-import Perfil from './components/Perfil'
+import Perfil from './components/perfil/Perfil'
 
 function App() {
 
