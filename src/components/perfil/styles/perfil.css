@@ -6,12 +6,87 @@
     margin-right: 4em;
     margin-left: 1em;
 }
+#prin{
+    background-color: orange;
+}
+#panel{
+    width: 1200px;
+    height: 500px;
+    border-bottom: 1000px red;
+    
+    margin: 0.5em;
+
+}
+
+#contPanel1{
+    background-color: blue;
+    margin-left: 0.5em;
+    width: 250px;
+    height: 500px;
+    border: 1px solid red;
+}
+
+#contPanel2{
+    background-color: yellow;
+    margin-left: 0.5em;
+    width: 250px;
+    height: 500px;
+    border: 1px solid red;
+}
+
+#contPanel3{
+    background-color: yellow;
+    margin-left: 0.5em;
+    width: 250px;
+    height: 500px;
+    border: 1px solid red;
+}
+
+#contPanel4{
+    background-color: yellow;
+    margin-left: 0.5em;
+    width: 250px;
+    height: 500px;
+    border: 1px solid red;
+}
+
+#contPanel5{
+    background-color: yellow;
+    margin-left: 0.5em;
+    width: 250px;
+    height: 500px;
+    border: 1px solid red;
+}
+
+
+.caja{
+    position: relative;
+    left:270px;
+    bottom: 500px;     
+}
+
+.caja1{
+    position: relative;
+    left:540px;
+    bottom: 1000px;     
+}
+.caja2{
+    position: relative;
+    left: 810px;
+    bottom: 1500px;     
+}
+.caja3{
+    position: relative;
+    left:1080px;
+    bottom: 2000px;     
+}
+
 #containerUno{
     background-color: blue;
     margin-top: 1.5em;
     font-size: x-small;
     display: flex;
-    gap: 30px;
+    gap: 200px;
     align-items: center;
     justify-content: left;
 }
