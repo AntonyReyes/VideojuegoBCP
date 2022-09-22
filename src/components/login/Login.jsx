@@ -13,33 +13,51 @@ const Login = () => {
 
   const dispatch = useDispatch()
 
+  const [probarURL, setProbarURL] = useState('')
 
-
-  const getAllUser = () => {
-    URL = 'https://sheet.best/api/sheets/358e08e4-076d-428f-a6d1-e341c5c18712'
-    axios   .get(URL)
-        .then( res => dispatch(setUser(res.data)))
-        .catch(err => console.log(err))
+  const getAllUser = (URL) => {
+    axios.get(URL)
+      .then(res => dispatch(setUser(res.data)))
+      .catch(err => setProbarURL('error'))
   }
 
+
   useEffect(() => {
-  getAllUser()
-}, [])
 
-const users = useSelector(state => state.user)
+    if(!probarURL){
+      URL = 'https://sheet.best/api/sheets/3735a2c9-d84e-4ebe-a564-3e1be5135b12'
+      getAllUser(URL)
+    }
+    else if (!probarURL) {
+      URL = 'https://sheet.best/api/sheets/1c2b350f-7cc5-49b3-8178-72196637e217'
+      getAllUser(URL)
+      setProbarURL('')
+    }else if (!probarURL) {
+      URL = 'https://sheet.best/api/sheets/98c8b1da-8eb8-4662-9b34-438dda900eaa'
+      getAllUser(URL)
+      setProbarURL('')
+    }else if (!probarURL) {
+      URL = 'https://sheet.best/api/sheets/d5400b2e-4b88-4727-8da9-4c943af1e431'
+      getAllUser(URL)
+      setProbarURL('')
+    }else if (!probarURL) {
+      URL = 'https://sheet.best/api/sheets/7a87d41d-7625-4ff5-b61e-8f62180f6bb1'
+      getAllUser(URL)
+      setProbarURL('')
+    }else if (!probarURL) {
+      URL = 'https://sheet.best/api/sheets/dfe1da45-127b-4365-834d-1b2689c15760'
+      getAllUser(URL)
+      setProbarURL('')
+    }else if (!probarURL) {
+      URL = 'https://sheet.best/api/sheets/2e30734c-7ab4-4450-9818-defe36ae5b41'
+      getAllUser(URL)
+      setProbarURL('')
+    }
 
+  }, [])
 
+  const users = useSelector(state => state.user)
 
-
-// console.log(createId);
-
-  // const dispatch = useDispatch()
-
-  // const navigate = useNavigate()
-
-  // modal
-
-  
 
   const [isFormOpen, setIsFormOpen] = useState()
 
@@ -50,14 +68,14 @@ const users = useSelector(state => state.user)
   return (
     <div className='card_login'>
       <div className='card_login_1-1'>
-      <FormLogin/>
+        <FormLogin />
         <p className='p_aun_no_registrado'>Aun no esta registrado? <span
-        onClick={handleOpenForm} 
-        className='card_open_form'>Crear cuenta</span></p>
+          onClick={handleOpenForm}
+          className='card_open_form'>Crear cuenta</span></p>
       </div>
 
       <div className={isFormOpen ? 'form-container' : 'form-none'}>
-        <CreateUser handleCloseForm={handleCloseForm} getAllUser={getAllUser}/>
+        <CreateUser handleCloseForm={handleCloseForm} getAllUser={getAllUser} />
       </div>
 
     </div>

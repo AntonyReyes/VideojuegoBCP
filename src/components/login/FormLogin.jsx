@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -12,53 +12,15 @@ const valueDefaulInicio = {
 
 const FormLogin = () => {
 
-  
-
-  // useEffect(() => {
-  //   URL = 'https://sheet.best/api/sheets/451ba931-12de-4557-8249-2264fb78c2ae'
-  //   axios.get(URL)
-  //   .then(res => console.log(res.data))
-  //   .catch(err => console.log(err))
-  // }, [])
-
-
-  // const data = {
-  //   id: 1,
-  //   name:'Carlos jose',
-  //   lastName: 'Villanueva Medina',
-  //   user: 'Carlos',
-  //   password: '12345',
-  //   email: 'carlos@gmail.com',
-  // }
-
-
-
-  // console.log(data);
-
-  //   useEffect(() => {
-  //     URL = 'https://sheet.best/api/sheets/451ba931-12de-4557-8249-2264fb78c2ae'
-  //     axios.post(URL, data)
-  //         .then(res => {
-  //             console.log(res.data);
-  //         })
-  //         .catch(err => console.log(err))
-  // }, [])
-
-  // useEffect(() => {
-  //     URL = 'https://sheet.best/api/sheets/451ba931-12de-4557-8249-2264fb78c2ae'
-  //     axios.post(URL, data)
-  //         .then(res => {
-  //             console.log(res.data);
-  //         })
-  //         .catch(err => console.log(err))
-  // }, [])
 
   const dispatch = useDispatch()
 
   const navigate = useNavigate()
 
 
+  const [btnpassword, setBtnpassword] = useState(false)
 
+  const btnContraseña = () => setBtnpassword(!btnpassword)
 
 
   const buscar = (array = [], obj = {}) => {
@@ -74,10 +36,6 @@ const FormLogin = () => {
 
     const aux = buscar(users, data)
 
-
-    console.log(data);
-    console.log(users);
-    console.log(aux);
     const boleano = aux.length === 1 ? true : false
     console.log(boleano);
 
@@ -107,13 +65,15 @@ const FormLogin = () => {
         <input {...register('user')} type="text" className='login__input' id="txt" required />
       </div>
       <div className='login__div'>
-        <label className='login__label' htmlFor="password">Contraseña</label>
+        <label className='login__label' htmlFor="password">Contraseña </label>
+        <div className='btnHidenpassword'>
         <input {...register('password')}
-          type="password"
+          type={btnpassword?'password':'text'}
           className='login__input'
           id="password"
           autoComplete='contraseña'
-          required />
+          required /> <a className='btnMostrar' onClick={btnContraseña}>{btnpassword?'mostrar':'ocultar'}</a>
+        </div>
       </div>
       <button className='login__btn'>Login</button>
     </form>

@@ -4,22 +4,40 @@
 .h1_bvb{
     text-align: center;
     margin-bottom: 1em;
+    max-width: 80%;
+    margin: auto;
 }
 .logo_home{
-    width: 400px; 
+    width: 300px;
     margin: auto;
     display: flex;
     justify-content: center;
+    margin-top: 2em;
     margin-bottom: 2em;
 }
+
+@media (max-width: 600px) {
+    .logo_home{
+        width: 50%;
+    }
+  }
+
 .p_home{
-    margin-right: 1em;
-    margin-left: 1em;
+    margin-right: 4%;
+    margin-left: 4%;
     margin-bottom: 1em;
+    margin: auto;
+    max-width: 80%;
+    text-align: justify;
 }
 .b_home{
     color: red;
     margin: auto;
     display: flex;
     justify-content: center;
+    max-width: 80%;
+    margin: auto;  
+    margin-top: 2em;
+    margin-bottom: 1em;
 }
+

@@ -3,8 +3,13 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useSelector } from 'react-redux'
 
-// const CreateUser = ({ getAllUser, updateInfoUser, setUpdateInfoUser,handleCloseForm}) => {
 const CreateUser = ({ handleCloseForm, getAllUser }) => {
+
+    const [probarURL, setProbarURL] = useState('')
+
+    const [btnpassword, setBtnpassword] = useState(false)
+
+    const btnContraseña = () => setBtnpassword(!btnpassword)
 
     const defaulltValueUser = {
         name: '',
@@ -17,50 +22,73 @@ const CreateUser = ({ handleCloseForm, getAllUser }) => {
     const { register, handleSubmit, reset } = useForm()
 
 
+    const createNewUser = (data, URL) => {
 
+        const aux = buscar(users, data.user)
 
-    // useEffect(() => {
-    //     if (updateInfoUser) {
-    //         reset(updateInfoUser)
-    //     }
-    // }, [updateInfoUser])
-
-
-
-    const createNewUser = data => {
-        URL = 'https://sheet.best/api/sheets/358e08e4-076d-428f-a6d1-e341c5c18712'
-        axios.post(URL, data)
-            .then(res => {
-                console.log(res.data);
-                getAllUser()
-            })
-            .catch(err => console.log(err))
+        if (!aux.length) {
+            axios.post(URL, data)
+                .then(res => {
+                    getAllUser()
+                    speechSynthesis.speak(new SpeechSynthesisUtterance(`La  cuenta  fue  creada  con  exito , ingrese  nombre  de  usuario  y contraseña  para  continuar`));
+                })
+                .catch(setProbarURL('error'))
+        } else {
+            speechSynthesis.speak(new SpeechSynthesisUtterance(`El  nombre  de  usuario  ya  existe , la  cuenta  no  se pudo  crear , intente  con otro nombre   de  usuario `));
+        }
     }
 
     const users = useSelector(state => state.user)
 
-    // const updateUser = data => {
-    //     const URL = `http://144.126.218.162:8000/movies/${updateInfoUser.id}/`
-    //     axios.patch(URL,data)
-    //         .then(res => {
-    //             console.log(res.data);
-    //             getAllUser()
-    //         })
-    //         .catch(err => console.log(err))
-    // }
+    const buscar = (array = [], str = '') => {
+        return array.filter((a = {}) => a.user === str)
+    }
 
     const submit = data => {
-        // if (updateInfoUser) {
-        //     updateUser(data)
-        //     setUpdateInfoUser()
-        // } else {
-
-        createNewUser(data)
+        if (!probarURL) {
+            URL = 'https://sheet.best/api/sheets/3735a2c9-d84e-4ebe-a564-3e1be5135b12'
+            createNewUser(data, URL)
+        }
+        else if (!probarURL) {
+            URL = 'https://sheet.best/api/sheets/1c2b350f-7cc5-49b3-8178-72196637e217'
+            createNewUser(data, URL)
+            reset(defaulltValueUser)
+            handleCloseForm()
+            setProbarURL('')
+        } else if (!probarURL) {
+            URL = 'https://sheet.best/api/sheets/98c8b1da-8eb8-4662-9b34-438dda900eaa'
+            createNewUser(data, URL)
+            reset(defaulltValueUser)
+            handleCloseForm()
+            setProbarURL('')
+        } else if (!probarURL) {
+            URL = 'https://sheet.best/api/sheets/d5400b2e-4b88-4727-8da9-4c943af1e431'
+            createNewUser(data, URL)
+            reset(defaulltValueUser)
+            handleCloseForm()
+            setProbarURL('')
+        } else if (!probarURL) {
+            URL = 'https://sheet.best/api/sheets/7a87d41d-7625-4ff5-b61e-8f62180f6bb1'
+            createNewUser(data, URL)
+            reset(defaulltValueUser)
+            handleCloseForm()
+            setProbarURL('')
+        } else if (!probarURL) {
+            URL = 'https://sheet.best/api/sheets/dfe1da45-127b-4365-834d-1b2689c15760'
+            createNewUser(data, URL)
+            reset(defaulltValueUser)
+            handleCloseForm()
+            setProbarURL('')
+        } else if (!probarURL) {
+            URL = 'https://sheet.best/api/sheets/2e30734c-7ab4-4450-9818-defe36ae5b41'
+            createNewUser(data, URL)
+            reset(defaulltValueUser)
+            handleCloseForm()
+            setProbarURL('')
+        }
         reset(defaulltValueUser)
-        // }
-
-        // reset(defaulltValueUser)
         handleCloseForm()
+
     }
 
     const closeForm = () => {
@@ -93,7 +121,7 @@ const CreateUser = ({ handleCloseForm, getAllUser }) => {
                         </div>
 
                         <div>
-                        <label htmlFor="last_genero2">Femenino: </label>
+                            <label htmlFor="last_genero2">Femenino: </label>
                             <input {...register('genero')} type="radio" id='last_genero2' required value={'F'} />
                         </div>
                     </div>
@@ -113,12 +141,12 @@ const CreateUser = ({ handleCloseForm, getAllUser }) => {
                 <li className='form__item'>
                     <label htmlFor="password-create">Contraseña</label>
                     <input {...register('password')}
-                        type="password"
+                        type={btnpassword?'password':'text'}
                         id='password-create'
                         placeholder='ingresar contraseña'
                         required
-                        autoComplete='contraseñ122a' />
-                    <input {...register('dinner')} value={2000} type="number"  hidden={true}/>
+                        autoComplete='contraseñ122a' /><a className='btnMostrar' onClick={btnContraseña}>{btnpassword?'mostrar contraseña':'ocultar contraseña'}</a>
+                    <input {...register('dinner')} value={2000} type="number" hidden={true} />
                 </li>
             </ul>
             <button className='form__btn'>Crear</button>

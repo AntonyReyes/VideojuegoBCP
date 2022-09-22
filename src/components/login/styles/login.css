@@ -195,3 +195,34 @@ input:focus {
   color: blue;
   cursor: pointer;
 }
+
+/* botones mostrar y ocultar contraseña */
+
+.btnMostrar{
+  background-color: rgb(29, 29, 66);
+  padding: 4px;
+  padding-left: 19px;
+  padding-right: 19px;
+  color: white;
+  border-radius: 7px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.btnHidenpassword{
+
+}
+
+@media(max-width:400px){
+  .btnMostrar{
+    margin: 0;
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    margin: auto;
+    margin-top: 4px;
+  }
+  .login__input{
+    width: 100%;
+  }
+}
