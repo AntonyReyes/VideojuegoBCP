@@ -7,7 +7,7 @@ const CreateUser = ({ handleCloseForm, getAllUser }) => {
 
     const [probarURL, setProbarURL] = useState('')
 
-    const [btnpassword, setBtnpassword] = useState(false)
+    const [btnpassword, setBtnpassword] = useState(true)
 
     const btnContraseña = () => setBtnpassword(!btnpassword)
 
@@ -29,12 +29,12 @@ const CreateUser = ({ handleCloseForm, getAllUser }) => {
         if (!aux.length) {
             axios.post(URL, data)
                 .then(res => {
-                    getAllUser()
+                    getAllUser(URL)
                     speechSynthesis.speak(new SpeechSynthesisUtterance(`La  cuenta  fue  creada  con  exito , ingrese  nombre  de  usuario  y contraseña  para  continuar`));
                 })
                 .catch(setProbarURL('error'))
         } else {
-            speechSynthesis.speak(new SpeechSynthesisUtterance(`El  nombre  de  usuario  ya  existe , la  cuenta  no  se pudo  crear , intente  con otro nombre   de  usuario `));
+            speechSynthesis.speak(new SpeechSynthesisUtterance(`El  nombre  de  usuario  ya  existe , la  cuenta  no  se pudo  crear , intente  nuevamente  por  favor `));
         }
     }
 

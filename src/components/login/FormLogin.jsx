@@ -18,7 +18,7 @@ const FormLogin = () => {
   const navigate = useNavigate()
 
 
-  const [btnpassword, setBtnpassword] = useState(false)
+  const [btnpassword, setBtnpassword] = useState(true)
 
   const btnContraseña = () => setBtnpassword(!btnpassword)
 
