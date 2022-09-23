@@ -1,0 +1,16 @@
+.pagoServicios{
+    background-color: blueviolet;
+    padding: 1em;
+    border-radius: 1em;
+    width: 270px;
+    margin: auto;
+    margin-top: 1em;
+
+}
+
+.title_pago_servicios{
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+

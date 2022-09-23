@@ -209,9 +209,6 @@ input:focus {
   cursor: pointer;
 }
 
-.btnHidenpassword{
-
-}
 
 @media(max-width:400px){
   .btnMostrar{

@@ -1,7 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import PagoDeServicios from './pago de servicios/PagoDeServicios';
+import PlanAhorro from './plan de ahorro/PlanAhorro';
+import { Presupuesto } from './presupuesto/Presupuesto';
 import './styles/perfil.css'
+import './styles/images.css'
+import casa1 from './images/Casas/level1.png'
+import casa2 from './images/Casas/level2.jpg'
+import casa3 from './images/Casas/level3.jpg'
+import casa4 from './images/Casas/level4.jpg'
+import Time from './timer/Time';
+
 
 const Perfil = () => {
 
@@ -12,6 +22,41 @@ const Perfil = () => {
   console.log(user[0] === undefined);
 
 
+  const [planAhorro, setPlanAhorro] = useState(false)
+
+  const [pagoServicios, setPagoServicios] = useState(false)
+
+  const [presupuesto, setPresupuesto] = useState(false)
+
+  const abrirPlanAhorro = () => {
+    setPlanAhorro(!planAhorro)
+    if(pagoServicios === true){
+      setPagoServicios(false)
+    }else if(presupuesto === true){
+      setPresupuesto(false)
+    }
+  }
+
+
+  const abrirPagoServicios = () => {
+    setPagoServicios(!pagoServicios)
+    if(planAhorro===true){
+      setPlanAhorro(false)
+    }else if(presupuesto === true){
+      setPresupuesto(false)
+    }
+  }
+
+  const abrirPresupuesto = () => {
+    setPresupuesto(!presupuesto)
+    if(planAhorro === true){
+      setPresupuesto(false)
+    }else if(pagoServicios === true){
+      setPagoServicios(false)
+    }
+  }
+
+
   if (user[0] !== undefined) {
     return (
       <div id="prin">
@@ -19,38 +64,88 @@ const Perfil = () => {
         <div id="containerUno">
           {
             user[0].genero === 'M' ?
-              <h1 className='welcome' >{`Bienvenido ${user[0].name},a este juego de educación financiera`}</h1>
+              <h2 className='welcome' >{`Bienvenido ${user[0].name} a este juego de educación financiera`}</h2>
               :
-              <h1 className='welcome' >{`Bienvenida ${user[0].name}, este juego de educación financiera`}</h1>
+              <h2 className='welcome' >{`Bienvenida ${user[0].name} este juego de educación financiera`}</h2>
 
           }
 
-          <h3>{` ${user[0].user}`}</h3>
-          <h3>{`Saldo disponible: s/${user[0].dinner}`}</h3>
+          <h3 className='welcome1'>{` ${user[0].user}`}</h3>
+          <h3 className='welcome1'>{`Saldo disponible: s/${user[0].dinner}`}</h3>
+
+          {
+            user[0].genero === 'M' ?
+            <img className='img_perfil' src="https://img.freepik.com/vector-premium/icono-usuario-hombre-traje-negocios_454641-453.jpg?w=2000" alt="" />
+            :
+            <img className='img_perfil' src="https://cdn.pixabay.com/photo/2014/04/02/17/07/user-307993_960_720.png" alt="" />
+          }
 
         </div>
 
-       
-        <div id="panel">
-          <div id="contPanel1">
+        <hr className='hr_perfil'/>
 
-          </div>
-          <div id="contPanel2" className='caja'>
+        <div className='container_btn_perfil'>
+          <button onClick={abrirPlanAhorro}  className='clasBtn'>Plan de ahoroo</button>
 
-          </div>
-          <div id="contPanel3" className='caja1'>
-
-          </div>
-          <div id="contPanel4" className='caja2'>
-
-          </div>
-          <div id="contPanel5" className='caja3'>
-
-          </div>
-
+          <button onClick={abrirPagoServicios} className='clasBtn'>Pago de servicios</button>
           
-        
+
+          <button onClick={abrirPresupuesto} className='clasBtn'>Presupuesto</button>
+          <div className='caja1'></div>
         </div>
+
+        <div>
+          <div>
+          {
+            planAhorro?
+            <PlanAhorro name={`${user[0].name}`} lastname={`${user[0].lastName}`}/>
+            :
+            ''
+          }
+          </div>
+
+          <div>
+          {
+             pagoServicios?
+             <PagoDeServicios name={`${user[0].name}`} lastname={`${user[0].lastName}`}/>
+             :
+             ''
+          }
+          </div>
+          <div>
+          {
+             presupuesto?
+             <Presupuesto name={`${user[0].name}`} lastname={`${user[0].lastName}`}/>
+             :
+             ''
+          }
+          </div>
+        </div>
+
+          <h2 className='tienda_title'>Tienda de compras</h2>
+        <div className='casas_general'>
+          <div className='continer_casas'>
+            <img className='casita' src={casa1} alt="" />
+            <button className='btn_casa'>Comprar s/ 10 000</button>
+          </div>
+          <div className='continer_casas'>
+            <img className='casita' src={casa2} alt="" />
+            <button className='btn_casa'>Comprar s/ 20 000</button>
+          </div>
+          <div className='continer_casas'>
+            <img className='casita' src={casa3} alt="" />
+            <button className='btn_casa'>Comprar s/ 50 000</button>
+          </div>
+          <div className='continer_casas'>
+            <img className='casita' src={casa4} alt="" />
+            <button className='btn_casa'>Comprar s/ 100 000</button>
+          </div>
+        </div>
+
+        <div>
+          <Time/>
+        </div>
+
       </div>
       
       

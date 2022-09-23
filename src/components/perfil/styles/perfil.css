@@ -1,92 +1,120 @@
 /* Aqui estilos */
 
-
-
-.welcome{
-    margin-right: 4em;
-    margin-left: 1em;
-}
-#prin{
-    background-color: orange;
-}
-#panel{
-    width: 1200px;
-    height: 500px;
-    border-bottom: 1000px red;
-    
-    margin: 0.5em;
-
-}
-
-#contPanel1{
-    background-color: blue;
-    margin-left: 0.5em;
-    width: 250px;
-    height: 500px;
-    border: 1px solid red;
-}
-
-#contPanel2{
-    background-color: yellow;
-    margin-left: 0.5em;
-    width: 250px;
-    height: 500px;
-    border: 1px solid red;
-}
-
-#contPanel3{
-    background-color: yellow;
-    margin-left: 0.5em;
-    width: 250px;
-    height: 500px;
-    border: 1px solid red;
-}
-
-#contPanel4{
-    background-color: yellow;
-    margin-left: 0.5em;
-    width: 250px;
-    height: 500px;
-    border: 1px solid red;
-}
-
-#contPanel5{
-    background-color: yellow;
-    margin-left: 0.5em;
-    width: 250px;
-    height: 500px;
-    border: 1px solid red;
-}
-
-
-.caja{
-    position: relative;
-    left:270px;
-    bottom: 500px;     
-}
-
-.caja1{
-    position: relative;
-    left:540px;
-    bottom: 1000px;     
-}
-.caja2{
-    position: relative;
-    left: 810px;
-    bottom: 1500px;     
-}
-.caja3{
-    position: relative;
-    left:1080px;
-    bottom: 2000px;     
-}
-
 #containerUno{
-    background-color: blue;
-    margin-top: 1.5em;
-    font-size: x-small;
-    display: flex;
-    gap: 200px;
-    align-items: center;
-    justify-content: left;
+    background-image: radial-gradient(circle at 10.43% 77.71%, #0068eb 0, #0063eb 10%, #005de9 20%, #0056e5 30%, #004ddd 40%, #4d42d4 50%, #7135c9 60%, #8b22bb 70%, #9f00ad 80%, #ae009d 90%, #ba008c 100%);
 }
+
+.hr_perfil{
+    margin: 0;
+}
+
+.img_perfil{
+    width: 5em;
+    border-radius: 50%;   
+}
+
+#prin{
+    background-image: radial-gradient(circle at 46.54% 44%, #00ffff 0, #00ffff 12.5%, #00ffff 25%, #00f4ff 37.5%, #0ad7ef 50%, #2cbad4 62.5%, #39a1bc 75%, #3f8ca5 87.5%, #417991 100%);
+    max-width: 2000px;
+    min-width: 279px;
+    min-height: 95.5vh;
+    display: block;
+    margin: auto;
+}
+
+@media(max-width:1200px){
+    
+    .welcome{
+        margin-left: 3%;
+        margin-right: 3%;
+        text-align: justify;
+        width: 94%;
+    }
+    
+    #containerUno{
+        display: flex;
+        justify-content: center;
+        background-color: black;
+        align-items: center;
+    }
+    
+    .welcome1{
+        width: 30%;
+        display: flex;
+        justify-content: center;
+    }
+    
+}
+
+@media(min-width:1200px){
+    .welcome:hover{
+        color: rgb(15, 25, 54);
+        }
+        
+        .welcome{
+            font-family: Roboto;
+            text-align: justify;
+            margin-top: 1.5em;
+            margin-left: 1em;
+        }
+        
+        
+        .welcome1{
+            margin-top: 2em;
+        }
+        
+        .img_perfil{
+            width: 5em;
+            background-color: rgb(75, 37, 37);
+            border-radius: 50%;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            margin-right: 1em;
+        }
+        
+        #containerUno{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+}
+
+@media(max-width:870px){
+   .welcome{
+    width: 90%;
+   }
+   #containerUno{
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
+   .welcome{
+    padding-bottom: 1em;
+   }
+
+   .welcome1{
+    padding-bottom: 1em;
+    text-align: center;
+   }
+
+   .img_perfil{
+    padding-bottom: 2em;
+   }
+}
+
+
+.clasBtn{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.container_btn_perfil{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 1em;
+}
+

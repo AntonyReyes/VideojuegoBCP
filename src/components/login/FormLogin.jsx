@@ -37,7 +37,6 @@ const FormLogin = () => {
     const aux = buscar(users, data)
 
     const boleano = aux.length === 1 ? true : false
-    console.log(boleano);
 
     if (boleano) {
       dispatch(setPersonal(aux))

@@ -1,0 +1,25 @@
+.tienda_title{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+/* Casas */
+
+.casas_general{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.continer_casas{
+    border: 1px solid black;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.casita{
+    height: 10em;
+}

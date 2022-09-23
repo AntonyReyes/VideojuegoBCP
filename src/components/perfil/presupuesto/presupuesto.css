@@ -1,0 +1,9 @@
+.presupuesta{
+    display: flex;
+    justify-content: center;
+    background-color: brown;
+    width: 270px;
+    margin: auto;
+    margin-top: 2em;
+}
+
