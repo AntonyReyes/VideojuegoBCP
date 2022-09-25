@@ -14,6 +14,11 @@ import carro1 from './images/Autos/level1.png'
 import carro2 from './images/Autos/level2.jpg'
 import carro3 from './images/Autos/level3.png'
 import carro4 from './images/Autos/level4.png'
+import telefono1 from './images/Telefono/level1-png'
+import telefono2 from './images/Telefono/level2-jpg'
+import telefono3 from './images/Telefono/level3-jpg'
+import telefono4 from './images/Telefono/level4-png'
+
 import Time from './timer/Time';
 import audio1 from './audios/a1.mp3'
 
@@ -204,6 +209,26 @@ console.log(num_infijo);
           <div className='continer_casas'>
             <img className='casita' src={carro4} alt="" />
             <button className='btn_casa'>Comprar s/ 1 000 000</button>
+          </div>
+        </div>
+
+        <h2 className='tienda_title'>Tienda de teléfonos</h2>
+        <div className='casas_general'>
+          <div className='continer_casas'>
+            <img className='casita' src={telefono1} alt="" />
+            <button className='btn_casa'>Comprar s/ 10 000</button>
+          </div>
+          <div className='continer_casas'>
+            <img className='casita' src={telefono2} alt="" />
+            <button className='btn_casa'>Comprar s/ 20 000</button>
+          </div>
+          <div className='continer_casas'>
+            <img className='casita' src={telefono3} alt="" />
+            <button className='btn_casa'>Comprar s/ 50 000</button>
+          </div>
+          <div className='continer_casas'>
+            <img className='casita' src={telefono4} alt="" />
+            <button className='btn_casa'>Comprar s/ 100 000</button>
           </div>
         </div>
 
