@@ -112,6 +112,7 @@ export const Presupuesto = ({ setNum_infijo }) => {
         <div className='nota_asas'>
           <b>Nota: Si tu ahorro sale negativo significa que no tienes un buen presupuesto, no puedes gastar mas de lo que tienes.</b>
         </div>
+      <button className='btn1'>Guardar presupuesto </button>
       </div>
 
     </form>

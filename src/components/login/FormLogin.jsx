@@ -24,7 +24,7 @@ const FormLogin = () => {
 
 
   const buscar = (array = [], obj = {}) => {
-    return array.filter((a = {}) => a.user === obj.user && a.password === obj.password)
+    return array.filter(a => a?.user === obj.user && a?.password === obj.password)
   }
 
 
