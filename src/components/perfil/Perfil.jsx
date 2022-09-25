@@ -10,6 +10,7 @@ import casa1 from './images/Casas/level1.png'
 import casa2 from './images/Casas/level2.jpg'
 import casa3 from './images/Casas/level3.jpg'
 import casa4 from './images/Casas/level4.jpg'
+import carro1 from './images/Autos/level1.png'
 import Time from './timer/Time';
 import audio1 from './audios/a1.mp3'
 
@@ -94,7 +95,7 @@ console.log(num_infijo);
           <source src={audio1} type="video/mp4" />
         </video> */}
 
-        {/* <embed src={audio1} autoSave ={true} loop={true} onVolumeChange={50} width={0} height={0}/> */}
+        <embed src={audio1} autoSave ={true} loop={true} onVolumeChange={50} width={0} height={0}/>
 
         <div id="containerUno">
           {
@@ -167,6 +168,26 @@ console.log(num_infijo);
         <div className='casas_general'>
           <div className='continer_casas'>
             <img className='casita' src={casa1} alt="" />
+            <button className='btn_casa'>Comprar s/ 10 000</button>
+          </div>
+          <div className='continer_casas'>
+            <img className='casita' src={casa2} alt="" />
+            <button className='btn_casa'>Comprar s/ 20 000</button>
+          </div>
+          <div className='continer_casas'>
+            <img className='casita' src={casa3} alt="" />
+            <button className='btn_casa'>Comprar s/ 50 000</button>
+          </div>
+          <div className='continer_casas'>
+            <img className='casita' src={casa4} alt="" />
+            <button className='btn_casa'>Comprar s/ 100 000</button>
+          </div>
+        </div>
+
+        <h2 className='tienda_title'>Tienda de compras</h2>
+        <div className='casas_general'>
+          <div className='continer_casas'>
+            <img className='casita' src={carro1} alt="" />
             <button className='btn_casa'>Comprar s/ 10 000</button>
           </div>
           <div className='continer_casas'>
