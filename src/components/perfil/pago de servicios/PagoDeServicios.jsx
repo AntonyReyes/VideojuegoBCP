@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './pagoServicios.css'
 
-const PagoDeServicios = () => {
+const PagoDeServicios = ({setnum_pagoServicios}) => {
+
+  useEffect(() => {
+    setnum_pagoServicios(true)
+  }, [])
+
   return (
     <div className='pagoServicios'>
         <h3 className='title_pago_servicios'>Pago de servicios</h3>

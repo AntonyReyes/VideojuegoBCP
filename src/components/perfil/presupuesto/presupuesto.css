@@ -1,9 +1,46 @@
-.presupuesta{
+.containerForm-Presupuesto{
     display: flex;
     justify-content: center;
-    background-color: brown;
-    width: 270px;
-    margin: auto;
-    margin-top: 2em;
+    flex-wrap: wrap;
 }
 
+.c1{
+    background-color: #23282B;
+    color: white;
+    width: 250px;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.c2{
+    background-color: #CAC4B0;
+    width: 250px;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.c3{
+    background-color: #686C5E;
+    width: 250px;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.c4{
+    background-color: #256D7B;
+    width: 250px;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.c5{
+    background-color: #721422;
+    width: 250px;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}

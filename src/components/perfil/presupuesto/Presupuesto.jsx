@@ -1,42 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useEffect } from 'react'
+import { useForm } from 'react-hook-form'
 import './presupuesto.css'
 
-export const Presupuesto = () => {
-  return (
-    <div className='presupuesta'>
-        <div className='sds'>
-            <h3>Ingresos totales</h3>
-            <p>Ingresos fijos</p>
-            <input type="number" />
-            <p>Ingresos variables</p>
-            <input type="number" />
-            <p>total: </p>
-            <p>Alquiler</p>
-            <input type="number" />
-            <p>servicios basicos{`(luz, agua, gas)`}</p>
-            <input type="number" />
-            <p>transporte</p>
-            <input type="number" />
-            <p>Alimentación</p>
-            <input type="number" />
-            <p>Pado de deudas</p>
-            <input type="number" />
-            <p>Educación</p>
-            <input type="number" />
-            <p>Fondo de emergencia</p>
-            <input type="number" />
-            <p>vestimenta y calsado</p>
-            <input type="number" />
-            <p>Entretenimiento</p>
-            <input type="number" />
-            <p>Gastor Hormiga</p>
-            <input type="number" />
-            <h3>Gastos fijos</h3>
-            <p>Gastos fijos: </p>
-            <h3>Gatos totales</h3>
-            <p>total: </p>
+export const Presupuesto = ({ setNum_infijo }) => {
 
-        </div>
-    </div>
+  const [val, setVal] = useState(0)
+
+
+  useEffect(() => {
+    setNum_infijo(true)
+  }, [])
+
+  return (
+    <form className='containerForm-Presupuesto' >
+      <div className='c1'>
+        <h3>Ingresos totales</h3>
+        <p>Ingresos fijos</p>
+        <input type="text" />
+        <p>Ingresos variables</p>
+        <input type="number" />
+        <h3>{`Gastos totales: ${val}`}</h3>
+      </div>
+    </form>
   )
 }

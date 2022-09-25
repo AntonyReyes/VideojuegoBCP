@@ -11,6 +11,7 @@ import casa2 from './images/Casas/level2.jpg'
 import casa3 from './images/Casas/level3.jpg'
 import casa4 from './images/Casas/level4.jpg'
 import Time from './timer/Time';
+import audio1 from './audios/a1.mp3'
 
 
 const Perfil = () => {
@@ -19,8 +20,6 @@ const Perfil = () => {
 
   const user = useSelector(state => state.personal)
 
-  console.log(user[0] === undefined);
-
 
   const [planAhorro, setPlanAhorro] = useState(false)
 
@@ -28,11 +27,41 @@ const Perfil = () => {
 
   const [presupuesto, setPresupuesto] = useState(false)
 
+  const [num_infijo, setNum_infijo] = useState(false)
+
+  const [num_planAhorro, setnum_planAhorro] = useState(false)
+
+  const [num_pagoServicios, setnum_pagoServicios] = useState(false)
+
+  useEffect( () => {
+    if(num_infijo == true){
+      speechSynthesis.speak(new SpeechSynthesisUtterance(`tus  ingresos  fijos  son  aquellos  que  
+      percibes  regularmente  como  por  ejemplo  
+      la  renta  de  tus  propiedades
+      Tus  ingresos  fijos  son  aquellos  que  
+      percibes  regularmente  como  por  ejemplo  
+      la  renta  de  tus  propiedades`))
+    }
+
+    if(num_planAhorro == true){
+      speechSynthesis.speak(new SpeechSynthesisUtterance(`Aquí  pagarás  tus  servicios  de  agua,  luz,  internet,  cable.  Recuerda  que  cuanto  más  nivel  tenga  tu  propiedad  estos  gastos  seran  mayores  también
+      Tambien  pagarás  tus  servicios  de  agua,  luz,  internet,  cable.  Recuerda  que  cuanto  más  nivel  tenga  tu  propiedad  estos  gastos  seran  mayores  también`))
+    }
+
+    if(num_pagoServicios == true){
+      speechSynthesis.speak(new SpeechSynthesisUtterance(`pago de servicios`))
+    }
+
+},[num_infijo, num_planAhorro, num_pagoServicios])
+  
+console.log(num_infijo);
+  
+
   const abrirPlanAhorro = () => {
     setPlanAhorro(!planAhorro)
-    if(pagoServicios === true){
+    if (pagoServicios === true) {
       setPagoServicios(false)
-    }else if(presupuesto === true){
+    } else if (presupuesto === true) {
       setPresupuesto(false)
     }
   }
@@ -40,18 +69,18 @@ const Perfil = () => {
 
   const abrirPagoServicios = () => {
     setPagoServicios(!pagoServicios)
-    if(planAhorro===true){
+    if (planAhorro === true) {
       setPlanAhorro(false)
-    }else if(presupuesto === true){
+    } else if (presupuesto === true) {
       setPresupuesto(false)
     }
   }
 
   const abrirPresupuesto = () => {
     setPresupuesto(!presupuesto)
-    if(planAhorro === true){
+    if (planAhorro === true) {
       setPresupuesto(false)
-    }else if(pagoServicios === true){
+    } else if (pagoServicios === true) {
       setPagoServicios(false)
     }
   }
@@ -60,6 +89,12 @@ const Perfil = () => {
   if (user[0] !== undefined) {
     return (
       <div id="prin">
+
+        {/* <video width="350" height="280" controls='' autoplay loop>
+          <source src={audio1} type="video/mp4" />
+        </video> */}
+
+        {/* <embed src={audio1} autoSave ={true} loop={true} onVolumeChange={50} width={0} height={0}/> */}
 
         <div id="containerUno">
           {
@@ -75,20 +110,20 @@ const Perfil = () => {
 
           {
             user[0].genero === 'M' ?
-            <img className='img_perfil' src="https://img.freepik.com/vector-premium/icono-usuario-hombre-traje-negocios_454641-453.jpg?w=2000" alt="" />
-            :
-            <img className='img_perfil' src="https://cdn.pixabay.com/photo/2014/04/02/17/07/user-307993_960_720.png" alt="" />
+              <img className='img_perfil' src="https://img.freepik.com/vector-premium/icono-usuario-hombre-traje-negocios_454641-453.jpg?w=2000" alt="" />
+              :
+              <img className='img_perfil' src="https://cdn.pixabay.com/photo/2014/04/02/17/07/user-307993_960_720.png" alt="" />
           }
 
         </div>
 
-        <hr className='hr_perfil'/>
+        <hr className='hr_perfil' />
 
         <div className='container_btn_perfil'>
-          <button onClick={abrirPlanAhorro}  className='clasBtn'>Plan de ahoroo</button>
+          <button onClick={abrirPlanAhorro} className='clasBtn'>Plan de ahoroo</button>
 
           <button onClick={abrirPagoServicios} className='clasBtn'>Pago de servicios</button>
-          
+
 
           <button onClick={abrirPresupuesto} className='clasBtn'>Presupuesto</button>
           <div className='caja1'></div>
@@ -96,33 +131,39 @@ const Perfil = () => {
 
         <div>
           <div>
-          {
-            planAhorro?
-            <PlanAhorro name={`${user[0].name}`} lastname={`${user[0].lastName}`}/>
-            :
-            ''
-          }
+            {
+              planAhorro ?
+                <PlanAhorro 
+                setnum_planAhorro = {setnum_planAhorro}
+                name={`${user[0].name}`} lastname={`${user[0].lastName}`} />
+                :
+                ''
+            }
           </div>
 
           <div>
-          {
-             pagoServicios?
-             <PagoDeServicios name={`${user[0].name}`} lastname={`${user[0].lastName}`}/>
-             :
-             ''
-          }
+            {
+              pagoServicios ?
+                <PagoDeServicios
+                setnum_pagoServicios = {setnum_pagoServicios}
+                name={`${user[0].name}`} lastname={`${user[0].lastName}`} />
+                :
+                ''
+            }
           </div>
           <div>
-          {
-             presupuesto?
-             <Presupuesto name={`${user[0].name}`} lastname={`${user[0].lastName}`}/>
-             :
-             ''
-          }
+            {
+              presupuesto ?
+                <Presupuesto 
+                setNum_infijo = {setNum_infijo}
+                name={`${user[0].name}`} lastname={`${user[0].lastName}`} />
+                :
+                ''
+            }
           </div>
         </div>
 
-          <h2 className='tienda_title'>Tienda de compras</h2>
+        <h2 className='tienda_title'>Tienda de compras</h2>
         <div className='casas_general'>
           <div className='continer_casas'>
             <img className='casita' src={casa1} alt="" />
@@ -143,12 +184,12 @@ const Perfil = () => {
         </div>
 
         <div>
-          <Time/>
+          <Time />
         </div>
 
       </div>
-      
-      
+
+
     )
 
   } else {

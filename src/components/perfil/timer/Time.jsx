@@ -6,7 +6,7 @@ const Time = () => {
 
 
     useEffect(() => {
-        setContainer(container + 0.0002)
+        // setContainer(container + 0.0002)
 
         if(container.toFixed(0) > 120){
             setContainer(0)

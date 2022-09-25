@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import './styles/planAhorros.css'
 
-const PlanAhorro = ({ name, lastname }) => {
+const PlanAhorro = ({ name, lastname, setnum_planAhorro}) => {
 
     const [counter, setCounter] = useState(0)
 
     useEffect(() => {
+      setnum_planAhorro(true)
         setCounter(counter+1)
         if(counter === 1){
             speechSynthesis.speak(new SpeechSynthesisUtterance(`Excelente!!  ${name} ${lastname} 
