@@ -33,7 +33,6 @@ const Perfil = () => {
 
   const user = useSelector(state => state.personal)
 
-
   const [planAhorro, setPlanAhorro] = useState(false)
 
   const [pagoServicios, setPagoServicios] = useState(false)
@@ -47,7 +46,7 @@ const Perfil = () => {
   const [num_pagoServicios, setnum_pagoServicios] = useState(false)
 
   useEffect( () => {
-    if(num_infijo == true){
+    if(num_infijo == true ){
       speechSynthesis.speak(new SpeechSynthesisUtterance(`tus  ingresos  fijos  son  aquellos  que  
       percibes  regularmente  como  por  ejemplo  
       la  renta  de  tus  propiedades
@@ -56,18 +55,26 @@ const Perfil = () => {
       la  renta  de  tus  propiedades`))
     }
 
-    if(num_planAhorro == true){
-      speechSynthesis.speak(new SpeechSynthesisUtterance(`Aquí  pagarás  tus  servicios  de  agua,  luz,  internet,  cable.  Recuerda  que  cuanto  más  nivel  tenga  tu  propiedad  estos  gastos  seran  mayores  también
-      Tambien  pagarás  tus  servicios  de  agua,  luz,  internet,  cable.  Recuerda  que  cuanto  más  nivel  tenga  tu  propiedad  estos  gastos  seran  mayores  también`))
+   else if(num_planAhorro == true ){
+      speechSynthesis.speak(new SpeechSynthesisUtterance(`Las metas financieras a corto plazo, te ayudara a planificar tu presupuesto personal,
+      dejar malos hábitos financieros, salir de deudas y ahorrar.
+      Además, te enseñara ha como invertir para tener mejores utilidades en menos tiempo.
+      
+      Las metas financieras a mediano plazo son objetivos en el lapso de 1 a 5 años, un periodo  
+más alto que requiere mayor responsabilidad, porque durante ese tiempo no deberás tocar  
+ese dinero. Lo ahorrado puede ser utilizado para iniciar un negocio o comprar el auto
+      
+      `))
+    }
+    
+    else if(num_pagoServicios == true){
+      speechSynthesis.speak(new SpeechSynthesisUtterance(`Paga tus servicios economicos basicos lo mas pronto posible ose te acumulara el interes`))
     }
 
-    if(num_pagoServicios == true){
-      speechSynthesis.speak(new SpeechSynthesisUtterance(`pago de servicios`))
-    }
+
 
 },[num_infijo, num_planAhorro, num_pagoServicios])
   
-console.log(num_infijo);
   
 
   const abrirPlanAhorro = () => {
@@ -92,7 +99,7 @@ console.log(num_infijo);
   const abrirPresupuesto = () => {
     setPresupuesto(!presupuesto)
     if (planAhorro === true) {
-      setPresupuesto(false)
+      setPlanAhorro(false)
     } else if (pagoServicios === true) {
       setPagoServicios(false)
     }
@@ -133,7 +140,7 @@ console.log(num_infijo);
         <hr className='hr_perfil' />
 
         <div className='container_btn_perfil'>
-          <button onClick={abrirPlanAhorro} className='clasBtn'>Plan de ahoroo</button>
+          <button onClick={abrirPlanAhorro} className='clasBtn'>Plan de ahorro</button>
 
           <button onClick={abrirPagoServicios} className='clasBtn'>Pago de servicios</button>
 

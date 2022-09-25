@@ -7,17 +7,6 @@ const PlanAhorro = ({ name, lastname, setnum_planAhorro}) => {
 
     useEffect(() => {
       setnum_planAhorro(true)
-        setCounter(counter+1)
-        if(counter === 1){
-            speechSynthesis.speak(new SpeechSynthesisUtterance(`Excelente!!  ${name} ${lastname} 
-            crear  un  plan  de  ahorros  es  un  paso  muy  importante  
-            para  mejorar tu  situación  financiera`));
-             console.log(counter);
-        }
-
-        if(counter ==5){
-            setCounter(0)
-        }
       }, [])
 
   return (

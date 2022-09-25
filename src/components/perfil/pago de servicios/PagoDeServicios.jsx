@@ -9,6 +9,7 @@ const PagoDeServicios = ({setnum_pagoServicios}) => {
 
   return (
     <div className='pagoServicios'>
+        <div className='c5'>
         <h3 className='title_pago_servicios'>Pago de servicios</h3>
         <ul>
             <li>Pago de agua: <b>s/50</b></li>
@@ -17,6 +18,7 @@ const PagoDeServicios = ({setnum_pagoServicios}) => {
             <li>Pago de linea de telefono <b>s/35</b></li>
         </ul>
         <button>pagar de servicios basicos</button>
+        </div>
     </div>
   )
 }
