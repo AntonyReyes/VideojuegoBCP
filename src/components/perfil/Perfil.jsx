@@ -227,35 +227,35 @@ ese dinero. Lo ahorrado puede ser utilizado para iniciar un negocio o comprar el
         <div className='casas_general'>
           <div className='continer_casas'>
             <img className='casita' src={telefono1} alt="" />
-            <button className='btn_casa'>Comprar s/ 10 000</button>
+            <button className='btn_casa'>Comprar s/ 50</button>
           </div>
           <div className='continer_casas'>
             <img className='casita' src={telefono2} alt="" />
-            <button className='btn_casa'>Comprar s/ 20 000</button>
+            <button className='btn_casa'>Comprar s/ 80</button>
           </div>
           <div className='continer_casas'>
             <img className='casita' src={telefono3} alt="" />
-            <button className='btn_casa'>Comprar s/ 50 000</button>
+            <button className='btn_casa'>Comprar s/ 120</button>
           </div>
           <div className='continer_casas'>
             <img className='casita' src={telefono4} alt="" />
-            <button className='btn_casa'>Comprar s/ 100 000</button>
+            <button className='btn_casa'>Comprar s/ 5000</button>
           </div>
         </div>
 
-        <h2 className='tienda_title'>Tienda de teléfonos</h2>
+        <h2 className='tienda_title'>Tienda de negocios</h2>
         <div className='casas_general'>
           <div className='continer_casas'>
             <img className='casita' src={tienda1} alt="" />
-            <button className='btn_casa'>Comprar s/ 10 000</button>
+            <button className='btn_casa'>Comprar s/ 200</button>
           </div>
           <div className='continer_casas'>
             <img className='casita' src={tienda2} alt="" />
-            <button className='btn_casa'>Comprar s/ 20 000</button>
+            <button className='btn_casa'>Comprar s/ 1500</button>
           </div>
           <div className='continer_casas'>
             <img className='casita' src={tienda3} alt="" />
-            <button className='btn_casa'>Comprar s/ 50 000</button>
+            <button className='btn_casa'>Comprar s/ 5000</button>
           </div>
           <div className='continer_casas'>
             <img className='casita' src={tienda4} alt="" />
